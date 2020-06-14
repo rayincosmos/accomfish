@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2020 by Agnes-Chen (http://jsbin.com/gahevil/35/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+
+    <!--framework link-->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet.css" href="style.css">
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="https://blocklypro.webduino.io/components/jquery/dist/jquery.min.js?rev=4a356126b9573eb7bd1e9a7494737410"></script>
+  <script src="https://blocklypro.webduino.io/dist/lib/webduino-all-0.4.20.min.js?rev=4426739c00d85325cb2d3d701fa50666"></script>
+  <script src="https://blocklypro.webduino.io/dist/webduino-blockly.min.js?rev=6a9037f813da79372168951bbfeafb49"></script>
+  <script src="https://webduinoio.github.io/webeye/js/camera.js"></script>
+  <script src="https://webduinoio.github.io/webduino-module-uart/UART.js"></script>
+  <script src="https://webduinoio.github.io/webduino-module-uart/UART-blockly.js"></script>
+  <title>AccomFish Feeding Monitor</title>
+<style id="jsbin-css">
+h1,h2,h3.h4,h5.h6{
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+p,a,input,label,textarea,span, ul,li{
+    font-family: 'Open Sans', sans-serif;
+}
+h3{
+    font-size: 36px;
+    line-height: 1.5;
+}
+
+.jumbotron{
+  background:#2D9CDB;
+  
+}
+
+#intro . jumbotron{
+
+    height: 70vh; 
+    background-color: #F2C94C;
+  /*monitor 70%height*/
+
+}
+.containter{
+    margin-bottom: 200px;
+}
+
+#intro .containter{
+    position: relative;
+    top: 50%; 
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateX(-50%);
+}
+#second{
+  padding: 80px 0px;
+  background: #F2C94C;
+}
+#second h3{
+    margin-bottom: 2.5rem;
+}
+
+#latest{
+    padding: 80px 0px;
+    background:rgba(248, 248, 248, 0.918);
+  margin-bottom: 2.5rem;
+}
+
+#latest h3{
+    margin-bottom: 80px;
+}
+</style>
+</head>
+<body>
+
+    <section id='intro'>
+        <div class="jumbotron">
+            <div class="container">
+              <div class='row'>
+               <div class="col-md-12">
+                    <h1>
+                        AccomFish 最方便的餵魚器
+                    </h1>
+                    <p class="lead">
+                        假日要當餵魚「值日生」，不能出去玩～<br>
+                        讓AccomFish幫你<br>
+                        讓你邊玩邊做實驗！
+                    </p>
+                </div>
+              </div>
+            </div>
+        </div>
+    </section>
+
+    <section id='latest'>
+      <div class='container'>
+        <div class='row'>
+            <div class='col-md-12 text-center'>
+              <h3>
+                ＃AccomFish 能幫你做什麼？
+              </h3>
+            </div>
+          </div>
+        <div class='row'>
+            <div class='col-md-4'>
+              <br>
+              <br>
+              <h5> ##1 全自動定時餵食：</h5>
+                 <p>定時定量的餵食，科學精準的減低實驗誤差，<br>
+                  控制生長曲線</p>
+              </div>
+            <div class='col-md-4'>
+              <br>
+              <br>
+              <h5> ##2 超精準餵食：</h5>
+                 <p>配合實驗好方便</p>
+                 <p>只要打開AccomFish的網頁，隨時都能根據實驗方案調整餵食的量</p>
+                 <p>精準到0.023g/s 的每秒供料量，所有誤差降到最低
+                
+            </div>
+            <div class='col-md-4'>
+              <br>
+              <br>
+              <h5> ##3 WebCam 24/7 live：</h5>
+                 <p>假日也想陪在你的魚身旁嗎？</p>
+                  <p>按下WebCam 馬上見到實驗室的他們</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <section id='second'>
+      <div class='container'>
+        <div class='row'>
+          <div class='col-md-8 offset-md-2 text-center'>
+            <br>
+            <br>
+            <h3>#AccomFish 讓度假時不再擔心</h3>
+            <br>
+              <div class='col-md-8 offset-md-2 text-center'>
+                <h4>##馬上開始用AccomFish </h4>
+                 <p> 每秒可以提供0.023g 的飼料
+              </div>
+            <div class='col-md-8 offset-md-2 text-center'>
+              <p class='lead'>打開AccomFish 隨時accompany your fish</p>
+              <br>
+              <div>
+                Tank01：
+                <input id="sec1" type="text" placeholder="請輸入秒數">
+              </div>
+              <br>
+              <div>
+                Tank02：
+                <input id="sec2" type="text" placeholder="請輸入秒數">
+              </div>
+              <br>
+              <div>
+                Tank03：
+                <input id="sec3" type="text" placeholder="請輸入秒數">
+              </div>
+              <br>
+              <button class="btn btn-primary" id="set">Set</button>
+              
+              </p>
+              
+            </div>
+
+          </div>
+
+        </div>
+      <br>
+      <br>
+        <div class='row'>
+          <div class='col-md-8 offset-md-2 text-center'>
+           
+
+                 
+                <div class='col-md-4'>
+                <h4>##查看斑馬魚的即時狀況 </h4>
+                 
+              </div>
+              <p class='lead'>按下AccomFish WebCam 隨時accompany your fish</p>
+            
+             <svg class="bi bi-camera-video" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M2.667 3.5c-.645 0-1.167.522-1.167 1.167v6.666c0 .645.522 1.167 1.167 1.167h6.666c.645 0 1.167-.522 1.167-1.167V4.667c0-.645-.522-1.167-1.167-1.167H2.667zM.5 4.667C.5 3.47 1.47 2.5 2.667 2.5h6.666c1.197 0 2.167.97 2.167 2.167v6.666c0 1.197-.97 2.167-2.167 2.167H2.667A2.167 2.167 0 0 1 .5 11.333V4.667z"/>
+                    <path fill-rule="evenodd" d="M11.25 5.65l2.768-1.605a.318.318 0 0 1 .482.263v7.384c0 .228-.26.393-.482.264l-2.767-1.605-.502.865 2.767 1.605c.859.498 1.984-.095 1.984-1.129V4.308c0-1.033-1.125-1.626-1.984-1.128L10.75 4.785l.502.865z"/>
+                  </svg>
+          <input type="button" class="btn btn-link" value="WebCam Live" onclick="location.href='http://webeye.webduino.io/camera/WzJO9KJQN/live'">
+          <br>
+          <br>
+               
+                    
+          </div>
+        </div>
+
+      </div>
+    </section>
+  
+  <script id="jsbin-javascript">
+var camURL = "http://webeye.webduino.io/camera/rdO0j9bmp/live";
+var cam = new Camera(camURL);
+// cam.setRotate(90);
+cam.onCanvas('qq');
+
+var sec1 = document.getElementById("sec1");
+var sec2 = document.getElementById("sec2");
+var sec3 = document.getElementById("sec3");
+var set = document.getElementById("set");
+
+
+boardReady({board: 'Smart', device: '10dx4nLd', transport: 'mqtt'}, function (board) {
+  console.log("start...");
+  board.samplingInterval = 50;
+  var uart;
+  
+  // 設定uart
+  uart = getUART(board, "9600");
+  
+  // 接收資料
+  uart.rx(function(){
+     console.log(uart.string);
+  });
+  
+  // 傳送資料
+  set.onclick = function(){
+    setTimeout(function(){
+      uart.tx("0," + sec1.value);  
+    }, 1000);
+    setTimeout(function(){
+      uart.tx("1," + sec2.value);
+    }, 2000);
+    setTimeout(function(){
+      uart.tx("2," + sec3.value);  
+    }, 3000);
+  };  
+});
+
+
+</script>
+</body>
+</html>
